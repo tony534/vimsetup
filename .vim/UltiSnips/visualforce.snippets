@@ -1,0 +1,153 @@
+snippet ra "for non-package" b
+${1:Controller.Method}(${2:param}, function(result, event)){
+    if (event.status) {
+	    ${3:parse(result)}
+    } else if (event.type === 'exception') {
+	    document.getElementById("responseErrors").innerHTML = event.message;
+    } else {
+	    document.getElementById("responseErrors").innerHTML = event.message;
+    }
+},{escape:true});
+endsnippet
+
+snippet ra "for package and non-package" b
+Visualforce.remoting.Manager.invokeAction(
+    '{!$RemoteAction.${1:MyController.getAccount}}', 
+    ${2:accountName}, 
+    function(result, event){
+	    if (event.status) {
+		    ${3:parse(result)}
+	    } else if (event.type === 'exception') {
+		    document.getElementById("responseErrors").innerHTML = event.message;
+	    } else {
+		    document.getElementById("responseErrors").innerHTML = event.message;
+	    }
+    }, 
+    {escape: true}
+);
+endsnippet
+
+snippet actionPoller "visualforce actionPull component" b
+<apex:actionPoller action="{!${1:incrementCounter}}" reRender="${2:count}" interval="${3:15}"/>
+endsnippet
+
+snippet actionSupport "Visualforce actionSupport component" b
+<apex:actionSupport event="${1:onchange}" rerender="${2:thePageBlock}" status="${3:status}"/>
+endsnippet
+
+snippet actionRegion "actionRegion component" b
+<apex:actionRegion>
+    ${1}
+</apex:actionRegion>
+endsnippet
+
+snippet listviews "Description" b
+<apex:ListViews type="${1:Case}" />
+endsnippet
+
+snippet <! "Description" b
+<!-- ${1} -->
+endsnippet
+
+snippet msg "Description" b
+<apex:pageMessages id="msg"/>
+endsnippet
+
+snippet rendered "Description" 
+rendered="{!IF ( ${1:showMemos == true && showIntegrationInfo == false}, true, false) }
+endsnippet
+
+snippet ros "Description" b
+<apex:remoteObjects ${1:jsNamespace="${2:MyCorpModels}"}>
+    <apex:remoteObjectModel name="${3:Contact}" fields="${4:id, Name}"/>
+</apex:remoteObjects>
+endsnippet
+
+snippet button "Description" b
+<input type="button" value="${1}" />
+endsnippet
+
+snippet open "Description" b
+window.open('/apex/${1:pagename}?${2:param}={!${3:userId}','','width=800,height=600,left=200,scrollbars=1');
+endsnippet
+
+snippet urltab "Description" i 
+{!urlFor($Action.${1:Account}.Tab, $ObjectType.${2:Account}, null, ${3:false})}
+endsnippet
+
+snippet urlview "Description" i
+{!urlFor($Action.${1:Account}.View, ${2:Account.Id}, null, ${3:false})}
+endsnippet
+
+snippet urlaetion "Description" i
+{!urlFor($Action.${1:Account}.${2:Tab}, ${3:id}, null, ${4:false})}
+endsnippet
+
+snippet sortcolumn "Description" b
+<apex:column id="name"> 
+    <apex:facet name="header"> 
+	    <apex:commandLink action="{!refreshRequest}" value="Name{!IF(sortExpression=='${1:Name}',IF(sortDirection='DESC','▼','▲'),'')}" id="${2:cmdNameSort}">
+		 <apex:param value="${3:Name}" name="column" assignTo="{!sortExpression}" ></apex:param>
+	    </apex:commandLink>
+    </apex:facet>
+    ${5:<apex:outputLink value="/{!r.request.Id}"><apex:outputText value="{!r.request.${6:Name}}" /></apex:outputLink>}
+</apex:column>
+endsnippet
+
+snippet outputDate "Description" b
+<apex:outputText style="padding-right:10px;" value="{0,date,dd MMM yyyy}">
+    <apex:param value="{!${1:thismemo.CreatedDate}}" /> 
+</apex:outputText>                  
+endsnippet
+
+snippet hideAction "Hides Action Column for Approval History" b
+<style type='text/css'>
+    {!if($Profile.Name !='System Administrator', ".actionColumn {display: none; visibility:hidden}" , null)} 
+/* === END === */
+</style>
+endsnippet
+
+snippet outputMoney "Description" b
+<apex:outputText value="{0,number,$#,###,##0.00}">
+    <apex:param value="{!${1:legislativeLimit}}" />
+</apex:outputText>
+endsnippet
+
+snippet IF "IF Formula in Visual force page" i
+IF(${1:condition}, ${2:TRUE}, ${3:FALSE})
+endsnippet
+
+snippet AND "AND Formular"
+AND(${CONDITION1},${CONDITION2})
+endsnippet
+
+
+snippet OR "OR Formular"
+OR(${CONDITION1},${CONDITION2})
+endsnippet
+
+snippet ddpicklist "dynamic dependency picklist" b
+<apex:pageBlockSection columns="2">
+    <apex:pageblockSectionItem>
+	   <apex:outputLabel value="State"/>
+    </apex:pageblockSectionItem>       
+    <apex:pageblockSectionItem>               
+	    <apex:selectList size="1" value="{!state}">
+		    <apex:selectOptions value="{!states}"/>
+		    <apex:actionSupport event="onchange" reRender="a"/>
+	    </apex:selectList>               
+    </apex:pageblockSectionItem>
+    <apex:pageblockSectionItem>
+	    <apex:outputLabel value="City"/>
+    </apex:pageblockSectionItem>           
+    <apex:pageblockSectionItem>
+	    <apex:selectList size="1" value="{!city}" id="a">
+		    <apex:selectOptions value="{!cities}"/>
+	    </apex:selectList>
+    </apex:pageblockSectionItem>           
+</apex:pageBlockSection>  
+endsnippet
+
+snippet inlineHelp "Description" b
+{!$ObjectType.${1:Account}.Fields.${2:Name}.InlineHelpText}
+endsnippet
