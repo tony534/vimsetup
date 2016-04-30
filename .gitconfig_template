@@ -1,0 +1,22 @@
+[user]
+	name = Wei Gao
+	email = gw8310@gmail.com
+[alias]
+	co = checkout
+	br = branch
+	ci = commit
+	st = status
+	ss = status -s
+	lg = log -oneline -decorate --all --graph
+	mylog = log pretty=format:'%h %s [%an]' --graph
+
+[push]
+	default = simple
+[pull]
+	rebase = true
+[rerere]
+	enabled = true
+[core]
+	editor = gvim -f
+[merge]
+	tool = vimdiff
