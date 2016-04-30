@@ -1,9 +1,7 @@
-rm -rf ~/.vim
-rm -rf ~/.vimrc
-cp -R ./.vim ~/
-cp ./.vimrc ~/
-chmod 777 ~/.vim
-chmod 777 ~/.vimrc
+rm -rf %HOME%/vimfiles
+rm -rf %HOME%/_vimrc
+cp -R ./_vim %HOME%/
+cp ./_vimrc %HOME%/
 
 git config --global user.name "Wei Gao"
 git config --global user.email "gw8310@gmail.com"
