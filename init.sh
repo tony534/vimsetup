@@ -14,10 +14,10 @@ git config --global alias.st status
 git config --global push.default simple
 git config --global pull.rebase true
 git config --global rerere.enabled true
-git config --global alias.ss "status –s"
-git config --global alias.lg "log –oneline –decorate --all --graph"
-git config ­­--global alias.mylog "log ­­pretty=format:'%h %s [%an]' –graph"
+git config --global alias.ss "status -s"
+git config --global alias.lg "log --oneline --decorate --all --graph"
+git config --global alias.mylog "log pretty=format:'%h %s [%an]' --graph"
 git config --global core.editor "mvim -f"
-git config --­­global merge.tool vimdiff
+git config --global merge.tool vimdiff
 git config credential.helper store
 
