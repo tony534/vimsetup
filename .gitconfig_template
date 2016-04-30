@@ -7,7 +7,7 @@
 	ci = commit
 	st = status
 	ss = status -s
-	lg = log -oneline -decorate --all --graph
+	lg = log --oneline --decorate --all --graph
 	mylog = log pretty=format:'%h %s [%an]' --graph
 
 [push]
