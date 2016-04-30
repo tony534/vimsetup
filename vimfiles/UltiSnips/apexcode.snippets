@@ -1,0 +1,414 @@
+snippet getrt "Description" 
+Id ${1:recordTypeId} = ${2:Account}.sObjectType.getDescribe().getRecordTypeInfosByName().get('${3:RecordTypeName}').getRecordTypeId();${4}
+endsnippet
+
+snippet getp "getParameters" b
+String ${1:id} = Apexpages.currentPage().getParameters().get('${2:id}');
+endsnippet
+
+snippet repg "redirect to a new page" b
+/**
+ * ${6}
+ */
+public PageReference ${1:redirectPage}(){
+    PageReference ref = Page.${2:existingPage};
+    ${3:ref.getParameters().put('${4:id}','${5:id}');}
+    ref.setRedirect(true);
+    return ref;
+}
+${7}
+endsnippet
+
+snippet action "Description" b
+ApexPages.Action ${1:saveAction} = new ApexPages.Action('{!${2:save}}');
+endsnippet
+
+snippet msg "Description" b
+ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.${1:FATAL},'${2:msg}'));
+endsnippet
+
+snippet msge "Description" b
+ApexPages.addMessages(${1:e}); 
+endsnippet
+
+snippet getview "Description" 
+new ApexPages.StandardController(${1:sobj}).view();
+endsnippet
+
+snippet (std "Description" i 
+(ApexPages.StandardController stdController
+endsnippet
+
+snippet stdrec "Description" b
+this.${1:acct} = (${2:Account})stdController.getRecord();
+endsnippet
+
+snippet try "Description" b
+try{
+    ${1}
+}catch(${2:System.DmlException} e){
+    ${3:ApexPages.addMessages(e);}
+}
+endsnippet
+
+snippet pr "Description"
+PageReference
+endsnippet
+
+snippet list
+List<${1}> ${2} = new List<$1>();
+endsnippet
+
+snippet set
+Set<${1}> ${2} = new Set<$1>();
+endsnippet
+
+snippet map 
+Map<${1}, ${2}> ${3} = new Map<$1, $2>();
+endsnippet
+
+snippet if "if statement" b
+if (${1:true}) {
+    ${2}
+}${3}
+endsnippet
+
+snippet ife "if else statement" b
+if (${1:true}) {
+    ${2}
+} else {
+    ${3}
+}${4}
+endsnippet
+
+snippet while "Description" b
+while (${1:condition}) {
+    ${2}
+}${3}
+endsnippet
+
+snippet do "Description" b
+do {
+    ${2}
+} while (${1:condition});${3}
+endsnippet
+
+snippet isBlank "Description" i
+String.isBlank(${1:string})
+endsnippet
+
+snippet cs "Description" b
+${1:type} ${2:var} = ${3:CustomSettingName__c}.getValues(${4:name}).${5:fieldName};
+endsnippet
+
+snippet databasedml "database dml statement" b
+Database.SaveResult[] ${1:srList} = Database.${2:insert}(${3:accts}, ${4:false});
+
+// Iterate through each returned result
+for (Database.SaveResult sr : $1) {
+    if (sr.isSuccess()) {
+        // Operation was successful, so get the ID of the record that was processed
+	     System.debug('Successfully inserted account. Account ID: ' + sr.getId());
+	    ${5}
+    }
+    else {
+        // Operation failed, so get all errors                
+        for(Database.Error err : sr.getErrors()) {
+            System.debug('The following error has occurred.');                    
+            System.debug(err.getStatusCode() + ': ' + err.getMessage());
+            System.debug('Account fields that affected this error: ' + err.getFields());
+		    ${6}
+        }
+    }
+}
+endsnippet
+
+snippet ddpicklist "Description" b
+public String state {get;set;}
+    public String city {get;set;}
+
+    public List<SelectOption> getStates() {
+        List<SelectOption> options = new List<SelectOption>();
+        options.add(new SelectOption('None','--- None ---'));       
+        options.add(new SelectOption('TN','Tamil Nadu'));
+        options.add(new SelectOption('KL','Kerala'));
+        return options;
+    }
+   
+    public List<SelectOption> getCities() {
+        List<SelectOption> options = new List<SelectOption>();
+        if(state == 'TN') {      
+            options.add(new SelectOption('CHE','Chennai'));
+            options.add(new SelectOption('CBE','Coimbatore'));
+        } else if(state == 'KL') {      
+            options.add(new SelectOption('COA','Coachin'));
+            options.add(new SelectOption('MVL','Mavelikara'));
+        } else {
+            options.add(new SelectOption('None','--- None ---'));
+        }     
+        return options;
+    }       
+endsnippet
+
+snippet selectoptions "Description" b
+public List<SelectOption> getStates() {
+    List<SelectOption> options = new List<SelectOption>();
+    options.add(new SelectOption('None','--- None ---'));       
+    options.add(new SelectOption('TN','Tamil Nadu'));
+    options.add(new SelectOption('KL','Kerala'));
+    return options;
+}
+
+endsnippet
+
+snippet /** "Description" b
+/**
+ * ${1}
+ */
+endsnippet
+
+snippet triggerHandler "Trigger Handler Template" 
+implements ITrigger {  
+
+    /**
+     * bulkBefore
+     *
+     * This method is called prior to execution of a BEFORE trigger. Use this to cache
+     * any data required into maps prior execution of the trigger.
+     */
+    public void bulkBefore() {
+        
+    }
+    
+    /**
+     * bulkAfter
+     *
+     * This method is called prior to execution of an AFTER trigger. Use this to cache
+     * any data required into maps prior execution of the trigger.
+     */
+    public void bulkAfter() {       
+    } 
+    
+    /**
+     * beforeInsert
+     *
+     * This method is called iteratively for each record to be inserted during a BEFORE
+     * trigger. Never execute any SOQL/SOSL etc in this and other iterative methods.
+     */
+    public void beforeInsert(SObject so) {          
+    }
+    
+    public void beforeUpdate(SObject oldSo, SObject so) {
+    }
+    
+    /**
+     * beforeDelete
+     *
+     * This method is called iteratively for each record to be deleted during a BEFORE
+     * trigger.
+     */
+    public void beforeDelete(SObject so) {
+    }
+    
+    public void afterInsert(SObject so) {
+    }
+    
+    public void afterUpdate(SObject oldSo, SObject so) {
+               
+   
+    }
+    
+    public void afterDelete(SObject so) {
+    }
+    /**
+     * andFinally
+     *
+     * This method is called once all records have been processed by the trigger. Use this
+     * method to accomplish any final operations such as creation or updates of other records.
+     */
+    public void andFinally() {
+    }
+}
+
+endsnippet
+
+snippet dmlvalerror "Description" b
+
+for (Integer i = 0; i < e.getNumDml(); i++) {
+    // Process exception here
+    System.debug(e.getDmlMessage(i));
+    if (e.getDmlMessage(i).contains('FIELD_CUSTOM_VALIDATION_EXCEPTION')){
+	    String cusValMsg = e.getDmlMessage(i).substring(e.getDmlMessage(i).indexOf('FIELD_CUSTOM_VALIDATION_EXCEPTION'));
+	    String dmlMsg = cusValMsg.substring(0, cusValMsg.indexOf(':'));  
+	    ApexPages.Message msg = new ApexPages.Message(ApexPages.Severity.ERROR, dmlMsg);
+	    ApexPages.addMessage(msg);
+    }
+}
+endsnippet
+
+snippet (triggerEvents "Description" i
+(after delete, after insert, after undelete, after update, before delete, before insert, before update
+endsnippet
+
+snippet createHandler "Description" b
+TriggerFactory.createHandler(${1:Account}.sObjectType);
+endsnippet
+
+snippet testSetup "setup method for test class" b
+
+@testSetup static void setup() {
+    ${1}
+}${2}
+endsnippet
+
+snippet conti "Continuation Patter" b
+// Unique label corresponding to the continuation
+public String requestLabel;
+// Result of callout
+public String result {get;set;}
+// Endpoint of long-running service
+private static final String LONG_RUNNING_SERVICE_URL =
+    '${1}';
+
+// Action method
+public Object startRequest() {
+    // Create continuation with a timeout
+    Continuation con = new Continuation(40);
+    // Set callback method
+    con.continuationMethod='processResponse';
+    // Create callout request
+    HttpRequest req = new HttpRequest();
+    req.setMethod('GET');
+    req.setEndpoint(LONG_RUNNING_SERVICE_URL);
+    // Add callout request to continuation
+    this.requestLabel = con.addHttpRequest(req);
+    // Return the continuation
+    return con; 
+} // Callback method
+public Object processResponse() {
+    // Get the response by using the unique label
+    HttpResponse response = Continuation.getResponse(this.requestLabel);
+    // Set the result variable that is displayed on the Visualforce page
+    this.result = response.getBody();
+    // Return null to re-render the original Visualforce page
+    return null;
+}
+endsnippet
+
+snippet remoteAction "remoteActionPatter" b
+@RemoteAction
+global static String ${1}(String ${2:objectName}) {
+    ${3}
+}${4}
+endsnippet
+
+snippet enu "enum definition" b
+public enum Season {WINTER, SPRING, SUMMER, FALL}
+endsnippet
+
+snippet jsons "json serialize String in pretty format" b
+String ${1:jsonString} = JSON.serializePretty(${2:Account});${3}
+endsnippet
+
+
+snippet jsons "json serialize String in raw format" b
+String ${1:jsonString} = JSON.serialize(${2:Account});${3}
+endsnippet
+
+snippet jsond "Json Deserialize list" b
+List<${1:Account}> ${2:accountsDeserialized} = (List<$1>) JSON.deserialize(${3:accountsJSON}, List<$1>.class);
+endsnippet
+
+
+snippet jsond "Json Deserialize Object" b
+${1:List<Account>} ${2:accountsDeserialized} = ($1) JSON.deserialize(${3:accountsJSON}, $1.class);
+endsnippet
+
+snippet jsong "Description" b
+JSONGenerator generator = JSON.createGenerator(true);
+endsnippet
+
+snippet jsonp "Description" b
+JSONParser parser = JSON.createParser(${1:jsonString});
+endsnippet
+
+snippet comm "Description" b
+/**
+ * @Description   ${1} 
+ * @Author	  Tony Gao
+ * @Company       System Parnters
+ * @Test          ${4}
+ * @group         Renew Registration
+ */
+endsnippet
+
+snippet callout "callout template" b
+public static HttpResponse ${1:getInfoFromExternalService}(String endpoint) {
+    HttpRequest req = new HttpRequest();
+    req.setEndpoint(endpoint);
+    req.setMethod('${2:GET}');
+    Http h = new Http();
+    HttpResponse res = h.send(req);
+    return res;
+}${3}
+endsnippet
+
+snippet testCallout "Description" b
+StaticResourceCalloutMock mock = new StaticResourceCalloutMock();
+mock.setStaticResource('${1:mockResponse}');
+mock.setStatusCode(200);
+mock.setHeader('Content-Type', 'application/json');
+
+// Set the mock callout mode
+Test.setMock(HttpCalloutMock.class, mock);
+
+// Call the method that performs the callout
+HTTPResponse res = ${2:CalloutStaticClass.getInfoFromExternalService}(
+    '${3:http://api.salesforce.com/foo/bar}');
+endsnippet
+
+snippet testMultiCallout "Description" b
+MultiStaticResourceCalloutMock multimock = new MultiStaticResourceCalloutMock();
+multimock.setStaticResource('${1:http://api.salesforce.com/foo/bar}', 'mockResponse');
+multimock.setStaticResource('${2:http://api.salesforce.com/foo/sfdc}', 'mockResponse2');
+multimock.setStatusCode(200);
+multimock.setHeader('Content-Type', 'application/json');
+// Set the mock callout mode
+Test.setMock(HttpCalloutMock.class, multimock);
+
+// Call the method for the first endpoint
+HTTPResponse res = ${3:CalloutMultiStaticClass.getInfoFromExternalService}('$1');
+
+HTTPResponse res2 = ${4:CalloutMultiStaticClass.getInfoFromExternalService}('$2');
+endsnippet
+
+snippet maplist "Description" b
+Map<Id, List<${1:Contact}>> ${2:accountContacts} = new Map<Id, List<$1>>();
+for($1 ${3:con} : ${4:cons}) {
+    if ($2.get($3.${5}) == null) {
+	    $2.put($3.$5, new List<$1>()); 
+    }
+    $2.get($3.$5).add($3); 
+}
+endsnippet
+
+snippet childTrigger "Description" b
+Set<Id> ${1:parentIds} = new Set<Id>();
+for(${2:ChildType} ${3:child} : Trigger.new) {
+    $1.add($3.${4:ParentId});
+}
+Map<Id, ${5:Parent}> ${6:parentMap} = new Map<Id, $5>([select ${7:XX} from $5 where id : $1]);
+for($2 $3 : Trigger.new){
+    $5 ${8:p} = $6.get($3.$4);
+    //TODO parent and child logic
+    ${9}
+}
+endsnippet
+
+snippet parentTrigger "Description" b
+for(${1:Child} ${2:child} : [select ${3:id} from $1 where ${4:parentId} in :Trigger.oldMap.keySet()]) {
+    ${5:Parent} ${6:p} = Trigger.oldMap.get($2.$4);
+    //TODO parent and child logic
+    ${7}
+}
+endsnippet
