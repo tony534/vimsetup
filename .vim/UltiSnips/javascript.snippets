@@ -86,3 +86,45 @@ Visualforce.remoting.Manager.invokeAction(
     {escape: true}
 );
 endsnippet
+
+
+snippet Oa "Object.assign" b
+let settings = Object.assign({}, ${1:default}, ${2:options}); ${0}
+endsnippet
+
+snippet fo "for...of.." b
+for(let ${1:a} of ${2:arr}){
+    ${3}
+}${0}
+endsnippet
+
+snippet => "Arrow Function" b
+(${1})=>{${2}}
+endsnippet
+
+snippet Si "Symbol.iterator" b
+${1:ObjectName}[Symbol.iterator] = function(){
+    let properties = Object.keys(this);
+    let count = 0;
+    let isDone = false;
+    let next = () => {
+	if(count >= properties.length){
+	    isDone = true;
+	}
+	return { done: isDone, value: this[properties[count++]] };
+    }
+    return { next };
+}
+
+endsnippet
+
+snippet Siy "generator" b
+${1:ObjectName}[Symbol.iterator] = function *(){
+    let properties = Object.keys(this);
+    for(let p of properties){
+	    yield this[p];
+    }
+}
+${0}
+
+endsnippet
