@@ -1,5 +1,5 @@
 set number
-call plug#begin('~/.vim/plugged')
+call plug#begin('~/vimfiles/plugged')
 
 " Shorthand notation; fetches https://github.com/junegunn/vim-easy-align
 Plug 'Raimondi/delimitMate'
@@ -102,8 +102,8 @@ nnoremap <leader>page :set filetype=visualforce<cr>
 nnoremap <leader>cls :set filetype=apexcode<cr>
 nnoremap <leader>html :set filetype=html<cr>
 nnoremap <leader>xml :set filetype=xml<cr>
-nnoremap <leader>ev :e ~/.vimrc<cr>
-nnoremap <leader>sv :source ~/.vimrc<cr>
+nnoremap <leader>ev :e ~/_vimrc<cr>
+nnoremap <leader>sv :source ~/_vimrc<cr>
 " nnoremap <leader>f :<C-u>Unite -start-insert file<CR>
 " nnoremap <leader>b :<C-u>Unite -start-insert buffer<CR>
 nnoremap <leader>f :<C-u>Unite file<CR>
