@@ -8,7 +8,7 @@
 	st = status
 	ss = status -s
 	lg = log --oneline --decorate --all --graph
-	mylog = log pretty=format:'%h %s [%an]' --graph
+	mylog = log --pretty=format:'%h %s [%an]' --graph
 
 [push]
 	default = simple
