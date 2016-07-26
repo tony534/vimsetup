@@ -17,6 +17,6 @@
 [rerere]
 	enabled = true
 [core]
-	editor = gvim -f
+	editor = 'C:\\Program Files\\Vim\\vim74\\gvim.exe' -f -i NONE
 [merge]
 	tool = vimdiff
