@@ -1,7 +1,7 @@
 rmdir %HOME%\vimfiles /S /Q
 rmdir %HOME%\_vimrc /S /Q
 rmdir %HOME%\.gitconfig /Q
-xcopy .\vimfiles %HOME%\ /E /H /I /Y
+xcopy .\vimfiles %HOME%\vimfiles /E /H /I /Y
 xcopy .\_vimrc %HOME%\ /E /H /I /Y
 copy .\.gitconfig_template %HOME%\.gitconfig /Y
 
