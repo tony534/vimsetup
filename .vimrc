@@ -21,6 +21,7 @@ Plug 'airblade/vim-rooter'
 Plug 'scrooloose/syntastic'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
+Plug 'mattn/emmet-vim'
 
 call plug#end()
 
