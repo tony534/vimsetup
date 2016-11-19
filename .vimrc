@@ -22,6 +22,7 @@ Plug 'scrooloose/syntastic'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'mattn/emmet-vim'
+Plug 'leafgarland/typescript-vim'
 
 call plug#end()
 
