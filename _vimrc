@@ -21,6 +21,10 @@ Plug 'airblade/vim-rooter'
 Plug 'scrooloose/syntastic'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
+Plug 'mattn/emmet-vim'
+Plug 'leafgarland/typescript-vim'
+Plug 'tpope/vim-surround'
+Plug 'vim-syntastic/syntastic'
 
 " for chinese windows
 set encoding=utf-8
