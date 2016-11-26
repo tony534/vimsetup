@@ -115,6 +115,7 @@ nnoremap <leader>asc :<C-u>ApexStageClear<CR>
 nnoremap <leader>ac :<C-u>ApexScratch<CR>
 nnoremap <leader>aq :<C-u>ApexQuery<CR>
 inoremap <M-;> <Esc>A;
+inoremap <leader>; <C-o>A;
 
  function! s:setApexShortcuts()
 
