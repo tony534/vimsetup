@@ -18,12 +18,12 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-markdown'
 Plug 'flazz/vim-colorschemes'
 Plug 'airblade/vim-rooter'
-Plug 'scrooloose/syntastic'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'mattn/emmet-vim'
 Plug 'leafgarland/typescript-vim'
 Plug 'tpope/vim-surround'
+Plug 'vim-syntastic/syntastic'
 
 call plug#end()
 
