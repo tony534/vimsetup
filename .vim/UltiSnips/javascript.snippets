@@ -149,14 +149,18 @@ gulp.task('${1:task}', function (callback) {
 ${0}
 endsnippet
 
-snippet gulp-exec "Description" b
-var exec = require('child_process').exec;
-gulp.task('${1:task}', function (callback) {
-  exec('${2:ping localhost}', function (err, stdout, stderr) {
-    console.log(stdout);
-    console.log(stderr);
-    callback(err);
-  });
+snippet jtask "Description" b
+desc("${1}");
+task("${2:default}", function() {
+    ${3}
 });
+${0}
+endsnippet
+
+snippet jexec "jake-exec" b
+desc("${1}")
+task("${2}", function() {
+    jake.exec("${3}",{interactive:true}, complete);
+}, {async:true});
 ${0}
 endsnippet
