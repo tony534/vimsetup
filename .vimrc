@@ -32,7 +32,7 @@ syntax on
 filetype plugin indent on
 map <F1> <Esc>
 imap <F1> <Esc>
-color desert
+color Tomorrow-Night
 
 set nocompatible
 set hidden
