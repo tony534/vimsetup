@@ -25,6 +25,8 @@ Plug 'mattn/emmet-vim'
 Plug 'leafgarland/typescript-vim'
 Plug 'tpope/vim-surround'
 Plug 'vim-syntastic/syntastic'
+Plug 'fatih/vim-go'
+
 
 " for chinese windows
 set encoding=utf-8
