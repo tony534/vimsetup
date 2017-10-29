@@ -182,11 +182,14 @@ inoremap <leader>; <C-o>A;
  endfunction
  
  " load shortcut mapping when one of apexcode file types is detected/loaded
- autocmd FileType apexcode.java call s:setApexShortcuts()
- autocmd FileType apexcode.html call s:setApexShortcuts()
- autocmd FileType apexcode.javascript call s:setApexShortcuts()
- autocmd FileType apexcode.html call s:setApexShortcuts()
- autocmd BufReadPost fugitive://* set bufhidden=delete
+augroup sf
+    autocmd!
+    autocmd FileType apexcode.java call s:setApexShortcuts()
+    autocmd FileType apexcode.html call s:setApexShortcuts()
+    autocmd FileType apexcode.javascript call s:setApexShortcuts()
+    autocmd FileType apexcode.html call s:setApexShortcuts()
+    autocmd BufReadPost fugitive://* set bufhidden=delete
+augroup END
 
 call s:setApexShortcuts()
 set tabstop=8     " Set the default tabstop
