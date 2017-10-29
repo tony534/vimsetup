@@ -100,8 +100,8 @@ nnoremap <leader>page :set filetype=visualforce<cr>
 nnoremap <leader>cls :set filetype=apexcode<cr>
 nnoremap <leader>html :set filetype=html<cr>
 nnoremap <leader>xml :set filetype=xml<cr>
-nnoremap <leader>ev :e ~/.vimrc<cr>
-nnoremap <leader>sv :source ~/.vimrc<cr>
+nnoremap <leader>ev :vsplit $MYVIMRC<cr>
+nnoremap <leader>sv :source $MYVIMRC<cr>
 " nnoremap <leader>f :<C-u>Unite -start-insert file<CR>
 " nnoremap <leader>b :<C-u>Unite -start-insert buffer<CR>
 nnoremap <leader>f :<C-u>Unite file<CR>
