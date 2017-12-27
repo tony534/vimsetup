@@ -87,9 +87,125 @@ Visualforce.remoting.Manager.invokeAction(
 );
 endsnippet
 
+snippet Oa "Object.assign" b
+let settings = Object.assign({}, ${1:default}, ${2:options}); ${0}
+endsnippet
+
+snippet fo "for...of.." b
+for(let ${1:a} of ${2:arr}){
+    ${3}
+}${0}
+endsnippet
+
+snippet => "Arrow Function" b
+(${1})=>{${2}}
+endsnippet
+
+snippet Si "Symbol.iterator" b
+${1:ObjectName}[Symbol.iterator] = function(){
+    let properties = Object.keys(this);
+    let count = 0;
+    let isDone = false;
+    let next = () => {
+	if(count >= properties.length){
+	    isDone = true;
+	}
+	return { done: isDone, value: this[properties[count++]] };
+    }
+    return { next };
+}
+
+endsnippet
+
+snippet Siy "generator" b
+${1:ObjectName}[Symbol.iterator] = function *(){
+    let properties = Object.keys(this);
+    for(let p of properties){
+	    yield this[p];
+    }
+}
+${0}
+
+endsnippet
+
 snippet iifee "iife without windows param" b
 (function() {
     ${1}
 }());
 ${0}
+
+endsnippet
+
+snippet gulp-exec "Description" b
+var exec = require('child_process').exec;
+gulp.task('${1:task}', function (callback) {
+  exec('${2:ping localhost}', function (err, stdout, stderr) {
+    console.log(stdout);
+    console.log(stderr);
+    callback(err);
+  });
+});
+${0}
+endsnippet
+
+snippet jtask "Description" b
+desc("${1}");
+task("${2:default}", function() {
+    ${3}
+});
+${0}
+endsnippet
+
+snippet jexec "jake-exec" b
+desc("${1}")
+task("${2}", function() {
+    jake.exec("${3}",{interactive:true}, complete);
+}, {async:true});
+${0}
+endsnippet
+
+snippet actrl "call apex controller" b
+var action = comp.get('c.${1}');
+action.setParams({
+    ${2}
+});
+action.setCallback(this, function(data) {
+    ${3}
+});
+$A.enqueueAction(action);
+endsnippet
+
+snippet vget "Value Provider Get" b
+cmp.get("v.${1}");$2
+endsnippet
+
+snippet vset "Value Provider Set" b
+cmp.set("v.${1}", ${2});$3
+endsnippet
+
+snippet ctrl "lightning controller" b
+${1:name} : function(cmp, evt, helper){
+    $2
+}
+endsnippet
+
+snippet cFire "component event fire" b
+${1:fireComponentEvent} : function(cmp, event) {
+    var ${2:attr} = cmp.get("v.${3:parentName}");
+    // Look up event by name, not by type
+    var compEvents = cmp.getEvent("${4:eventName}");
+    compEvents.setParams({ "${5:paramName}" :  ${6:paramValue});
+    compEvents.fire();
+}
+
+endsnippet
+
+snippet aFire "component event fire" b
+${1:fireAppEvent} : function(cmp, event) {
+    var ${2:attr} = cmp.get("v.${3:attrName}");
+    // note different syntax for getting application event
+    var appEvent = $A.get("e.c:${4:appEvent}");
+    appEvent.setParams({ "${5:paramName}" : ${6:paramValue});
+    appEvent.fire();
+}
 endsnippet

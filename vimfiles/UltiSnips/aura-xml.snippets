@@ -1,0 +1,35 @@
+snippet init "lightning component handler" b
+<aura:handler name="init" value="{!this}" action="{!c.doInit}" />${4}
+endsnippet
+
+snippet aHandler "lightning component handler" b
+<aura:handler event="c:${1:aeEvent}" action="{!c.${2:handleAppEvent}}" />${4}
+endsnippet
+
+snippet attr "lightning component handler" b
+<aura:attribute name="${1}" type="${2}" default="${3}" />$4
+endsnippet
+
+snippet csvg "SVC Icon" b
+<c:svgIcon category="standard" size="large" name="${1}"/> $2
+endsnippet
+
+snippet regE "Register Event" b
+<aura:registerEvent name="${1:sampleComponentEvent}" type="c:${2:compEvent}"/>
+endsnippet
+
+snippet cHandler "Component Handler" b
+<aura:handler name="${1}" event="c:${2:eventFileName}" action="${!c.${3:eventHandler}}"/>
+endsnippet
+
+
+snippet defineFacet "facet attribute" b
+<aura:attribute name="${1:facetName}" type="Aura.Component[]"/>${2}
+endsnippet
+
+snippet setFacet "set facet of component" b
+<aura:set attribute="${1:header}">
+    ${2:content}
+</aura:set>
+${3}
+endsnippet
