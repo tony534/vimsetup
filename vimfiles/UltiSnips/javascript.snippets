@@ -209,3 +209,64 @@ ${1:fireAppEvent} : function(cmp, event) {
     appEvent.fire();
 }
 endsnippet
+
+snippet createComponent "create component" b
+$A.createComponent(
+	"${1:lightning:button}",
+	
+	{
+		${2:aura:id}": "${3:findableAuraId}",
+		
+	},
+	
+	function(newCmp, status, errorMessage){
+		if (status === "SUCCESS") {
+			var body = cmp.get("v.body");
+			body.push(newCmp);
+			cmp.set("v.body", body);
+		}else if (status === "INCOMPLETE"){
+			// Show offline error
+			console.log("No response from server or client is offline.");
+		}else if (status === "ERROR") {
+			// Show error message
+			console.log("Error: " + errorMessage);
+		}
+	}
+);
+endsnippet
+
+snippet createNestedComponents "create nested component component" b
+$A.createComponents(
+	[   // first component
+		[ "ui:message",  
+			{
+				"title" : "Sample Thrown Error",
+				"severity" : "error",
+			}
+		], 
+		// 2nd component
+		[ "ui:outputText", 
+			{
+				"value" : e.message
+			} 
+		] 
+		
+	], function(components, status, errorMessage) {
+		if (status === "SUCCESS") {
+			var message = components[0];
+			var outputText = components[1];
+			// set the body of the ui:message to be the ui:outputText
+			message.set("v.body", outputText);
+		} else if (status === "INCOMPLETE") {
+			console.log("No response from server or client is offline.")
+			// Show offline error
+		} else if (status === "ERROR") {
+			console.log("Error: " + errorMessage);
+			// Show error message
+		}
+	})
+endsnippet
+
+
+
+
