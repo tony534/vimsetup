@@ -192,6 +192,11 @@ augroup sf
 augroup END
 
 call s:setApexShortcuts()
+
+set backupdir=~/.vim/backup//
+set directory=~/.vim/swap//
+set undodir=~/.vim/undo//
+
 set tabstop=8     " Set the default tabstop
 set softtabstop=4
 set shiftwidth=4  " Set the default shift width for indents
