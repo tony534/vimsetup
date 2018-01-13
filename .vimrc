@@ -37,6 +37,7 @@ color Tomorrow-Night
 
 set nocompatible
 set hidden
+set hlsearch
  
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
@@ -118,6 +119,7 @@ nnoremap <leader>ac :<C-u>ApexScratch<CR>
 nnoremap <leader>aq :<C-u>ApexQuery<CR>
 inoremap <M-;> <Esc>A;
 inoremap <leader>; <C-o>A;
+nnoremap <silent> <C-l> :<C-u>nohlsearch<CR><C-l>
 
  function! s:setApexShortcuts()
 
