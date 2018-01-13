@@ -45,6 +45,7 @@ color desert
 
 set nocompatible
 set hidden
+set hlsearch
  
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
@@ -125,6 +126,7 @@ nnoremap <leader>asc :<C-u>ApexStageClear<CR>
 nnoremap <leader>ac :<C-u>ApexScratch<CR>
 nnoremap <leader>aq :<C-u>ApexQuery<CR>
 inoremap <M-;> <Esc>A;
+nnoremap <silent> <C-l> :<C-u>nohlsearch<CR><C-l>
 
  function! s:setApexShortcuts()
 
@@ -208,6 +210,7 @@ set backupdir=C:\Windows\Temp
 
 " Uncomment below to disable 'swap files' (eg. .myfile.txt.swp) from being created
 set noswapfile
+
 
 set tabstop=8     " Set the default tabstop
 set softtabstop=4
