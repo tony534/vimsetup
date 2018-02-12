@@ -1,0 +1,83 @@
+<project xmlns:spci="antlib:com.systempartners.ci" xmlns:sf="antlib:com.salesforce">
+	<property file="build.properties" />
+	
+	<property name="sf.configFolder" location="config"></property>
+	<property name="sf.src" value="ChildStory/src"></property>
+	<property name="sf.outputFolder" location="output"></property>
+	<property name="sf.modifiedFileList" location="${sf.outputFolder}/modifiedFiles.txt"/>
+	<property name="sf.outputFileList" location="${sf.outputFolder}/filteredFiles.txt"/>
+
+	<property name="sf.deploymentDir" location="deployment"/>
+	<property name="sf.temp_packagexml" location="new_temp_package.xml"/>
+	<property name="sf.packagexml" location="${sf.deploymentDir}/${sf.src}/package.xml"/>
+	<property name="sf.componentsxml" location="${sf.configFolder}/sf_components.xml"/>
+	
+	<property name="sf.lib" location="lib"></property>
+	
+	<target name="init">
+		<delete dir="${sf.deploymentDir}"/>
+		<delete dir="${sf.outputFolder}"></delete>
+		<mkdir dir="${sf.deploymentDir}"/>
+		<mkdir dir="${sf.deploymentDir}/${sf.src}"/>
+		<mkdir dir="${sf.outputFolder}"/>
+	</target>
+	
+	<target name="diff" depends="init">
+		<exec executable="git" output="${sf.modifiedFileList}">
+			<arg value="diff" />
+			<arg value="--name-only" />
+			<arg value="${sf.commit}" />
+			<arg value="HEAD" />
+		</exec>
+		<echo>${sf.deploymentDir}</echo>
+		<echo>${sf.packagexml}</echo>
+		<spci:packGen componentlist="${sf.componentsxml}" 
+					inputFileList="${sf.modifiedFileList}" 
+					outputFileList="${sf.outputFileList}" 
+					packageXML="${sf.temp_packagexml}" />
+	</target>
+
+
+	<target name="checkExist" depends="diff">
+		<available file="${sf.outputFileList}" property="deploymentFile" />
+	</target>
+
+	<target name="copy" depends="checkExist" if="deploymentFile">
+		<copy todir="${sf.deploymentDir}">
+			<fileset dir="." includesfile="${sf.outputFileList}">
+				<!--<exclude name="**/Test*.cls"/>-->
+			</fileset>
+		</copy>
+		<copy tofile="${sf.temp_packagexml}" file="${sf.packagexml}"></copy>
+	</target>
+	
+	<target name="delete">
+		<sf:deploy username="${sf.username}" 
+		password="${sf.password}" serverurl="${sf.serverurl}" 
+		maxPoll="${sf.maxPoll}" deployRoot="delete" 
+		ignoreWarnings="true"/>
+	</target>
+
+	<target name="describeMetadata">
+		<sf:describeMetadata username="${sf.username}" password="${sf.password}" serverurl="${sf.serverurl}" />
+	</target>
+
+	<target name="listMetadata">
+		<sf:listMetadata username="${sf.username}" password="${sf.password}" serverurl="${sf.serverurl}" metadataType="${sf.metadataType}" />
+	</target>
+	
+	<target name="deployCode" depends="copy" if="deploymentFile">
+		<!-- Upload the contents of the "codepkg" directory, running the tests for just 1 class -->
+		<!--
+		<sf:deploy username="${sf.username}" password="${sf.password}" serverurl="${sf.serverurl}" 
+			maxPoll="${sf.maxPoll}" deployRoot="${git.deploymentDir}/src" 
+		rollbackOnError="true" testLevel="RunAllTestsInOrg">
+		-->
+		<sf:deploy username="${sf.username}" password="${sf.password}" serverurl="${sf.serverurl}" 
+			 maxPoll="${sf.maxPoll}" deployRoot="${git.deploymentDir}/src" rollbackOnError="true">
+		</sf:deploy>
+		<delete dir="${git.deploymentDir}" />
+		<delete dir="${sf.outputFolder}"></delete>
+
+	</target>
+</project>
