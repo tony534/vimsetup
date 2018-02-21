@@ -6,236 +6,285 @@
 			<name>CustomApplication</name>
 			<wildCard>true</wildCard>
 			<suffix>app</suffix>
+			<hasFolder>false</hasFolder>
+
 		</component>
 		<component>
 			<name>AuraDefinitionBundle</name>
 			<wildCard>true</wildCard>
 			<suffix>aura</suffix>
+			<hasFolder>false</hasFolder>
 		</component>
 		<component>
 			<name>HomePageLayout</name>
 			<wildCard>true</wildCard>
 			<suffix>homePageLayout</suffix>
+			<hasFolder>false</hasFolder>
 		</component>
 		<component>
 			<name>HomePageComponent</name>
 			<wildCard>true</wildCard>
 			<suffix>homePageComponent</suffix>
+			<hasFolder>false</hasFolder>
 		</component>
 		<component>
 			<name>ApprovalProcess</name>
 			<wildCard>true</wildCard>
 			<suffix>approvalProcess</suffix>
+			<hasFolder>false</hasFolder>
 		</component>
 		<component>
 			<name>ApexClass</name>
 			<wildCard>true</wildCard>
 			<suffix>cls</suffix>
+			<hasFolder>false</hasFolder>
 		</component>
 		<component>
 			<name>ApexComponent</name>
 			<wildCard>true</wildCard>
 			<suffix>component</suffix>
+			<hasFolder>false</hasFolder>
 		</component>
 		<component>
 			<name>CustomApplicationComponent</name>
 			<wildCard>true</wildCard>
 			<suffix>customApplicationComponent</suffix>
+			<hasFolder>false</hasFolder>
 		</component>
 		<component>
 			<name>CustomPermission</name>
 			<wildCard>true</wildCard>
 			<suffix>customPermission</suffix>
+			<hasFolder>false</hasFolder>
 		</component>
 		<component>
 			<name>CustomMetadata</name>
 			<wildCard>true</wildCard>
 			<suffix>md</suffix>
+			<hasFolder>false</hasFolder>
 		</component>
 		<component>
 			<name>EmailTemplate</name>
 			<wildCard>false</wildCard>
 			<suffix>email</suffix>
+			<hasFolder>true</hasFolder>
+
 		</component>
 		<component>
 			<name>FlexiPage</name>
 			<wildCard>true</wildCard>
 			<suffix>flexipage</suffix>
+			<hasFolder>false</hasFolder>
 		</component>
 		<component>
 			<name>Flow</name>
 			<wildCard>true</wildCard>
 			<suffix>flow</suffix>
+			<hasFolder>false</hasFolder>
 		</component>
 		<component>
 			<name>GlobalValueSet</name>
 			<wildCard>true</wildCard>
 			<suffix>globalValueSet</suffix>
+			<hasFolder>false</hasFolder>
 		</component>
 		<component>
 			<name>Group</name>
 			<wildCard>true</wildCard>
 			<suffix>group</suffix>
+			<hasFolder>false</hasFolder>
 		</component>
 		<component>
 			<name>Layout</name>
 			<wildCard>true</wildCard>
 			<suffix>layout</suffix>
+			<hasFolder>false</hasFolder>
 		</component>
 		<component>
 			<name>Letterhead</name>
 			<wildCard>false</wildCard>
 			<suffix>letter</suffix>
+			<hasFolder>false</hasFolder>
 		</component>
 		<component>
 			<name>CustomObject</name>
 			<wildCard>false</wildCard>
 			<suffix>object</suffix>
+			<hasFolder>false</hasFolder>
 		</component>
 		<component>
 			<name>CustomObjectTranslation</name>
 			<wildCard>true</wildCard>
 			<suffix>objectTranslation</suffix>
+			<hasFolder>false</hasFolder>
 		</component>
 		<component>
 			<name>ApexPage</name>
 			<wildCard>true</wildCard>
 			<suffix>page</suffix>
+			<hasFolder>false</hasFolder>
 		</component>
 		<component>
 			<name>Profile</name>
 			<wildCard>true</wildCard>
 			<suffix>profile</suffix>
+			<hasFolder>false</hasFolder>
 		</component>
 		<component>
 			<name>PermissionSet</name>
 			<wildCard>true</wildCard>
 			<suffix>permissionset</suffix>
+			<hasFolder>false</hasFolder>
 		</component>
 		<component>
 			<name>Queue</name>
 			<wildCard>true</wildCard>
 			<suffix>queue</suffix>
+			<hasFolder>false</hasFolder>
 		</component>
 		<component>
 			<name>QuickAction</name>
 			<wildCard>true</wildCard>
 			<suffix>quickAction</suffix>
+			<hasFolder>false</hasFolder>
 		</component>
 		<component>
 			<name>RemoteSiteSetting</name>
 			<wildCard>false</wildCard>
 			<suffix>remoteSite</suffix>
+			<hasFolder>false</hasFolder>
 		</component>
 		<component>
 			<name>Report</name>
 			<wildCard>false</wildCard>
 			<suffix>report</suffix>
+			<hasFolder>true</hasFolder>
 		</component>
 		<component>
 			<name>Role</name>
 			<wildCard>true</wildCard>
 			<suffix>role</suffix>
+			<hasFolder>false</hasFolder>
 		</component>
 		<component>
 			<name>Settings</name>
 			<wildCard>false</wildCard>
 			<suffix>settings</suffix>
+			<hasFolder>false</hasFolder>
 		</component>
 		<component>
 			<name>StandardValueSet</name>
 			<wildCard>false</wildCard>
 			<suffix>standardValueSet</suffix>
+			<hasFolder>false</hasFolder>
 		</component>
 		<component>
 			<name>StaticResource</name>
 			<wildCard>true</wildCard>
 			<suffix>resource</suffix>
+			<hasFolder>false</hasFolder>
 		</component>
 		<component>
 			<name>CustomTab</name>
 			<wildCard>true</wildCard>
 			<suffix>tab</suffix>
+			<hasFolder>false</hasFolder>
 		</component>
 		<component>
 			<name>ApexTrigger</name>
 			<wildCard>true</wildCard>
 			<suffix>trigger</suffix>
+			<hasFolder>false</hasFolder>
 		</component>
 		<component>
 			<name>Workflow</name>
 			<wildCard>true</wildCard>
 			<suffix>workflow</suffix>
+			<hasFolder>false</hasFolder>
 		</component>
 		<component>
 			<name>CustomLabel</name>
 			<wildCard>false</wildCard>
 			<suffix>labels</suffix>
+			<hasFolder>false</hasFolder>
 		</component>
 		<component>
 			<name>InstalledPackage</name>
 			<wildCard>true</wildCard>
 			<suffix>installedPackage</suffix>
+			<hasFolder>false</hasFolder>
 		</component>
 		<component>
 			<name>SharingRules</name>
 			<wildCard>true</wildCard>
 			<suffix>sharingRules</suffix>
+			<hasFolder>false</hasFolder>
 		</component>
 		<component>
 			<name>ReportType</name>
 			<wildCard>true</wildCard>
 			<suffix>reportType</suffix>
+			<hasFolder>false</hasFolder>
 		</component>
 		<component>
 			<name>Document</name>
 			<wildCard>false</wildCard>
 			<suffix>document</suffix>
+			<hasFolder>false</hasFolder>
 		</component>
 		<component>
 			<name>ContentAsset</name>
 			<wildCard>true</wildCard>
 			<suffix>asset</suffix>
+			<hasFolder>false</hasFolder>
 		</component>
 		<component>
 			<name>DataCategoryGroup</name>
 			<wildCard>true</wildCard>
 			<suffix>datacategorygroup</suffix>
+			<hasFolder>false</hasFolder>
 		</component>
 		<component>
 			<name>PlatformCachePartition</name>
 			<wildCard>true</wildCard>
 			<suffix>cachePartition</suffix>
+			<hasFolder>false</hasFolder>
 		</component>
 		<component>
 			<name>DuplicateRule</name>
 			<wildCard>true</wildCard>
 			<suffix>duplicateRule</suffix>
+			<hasFolder>false</hasFolder>
 		</component>
 		<component>
 			<name>FlowDefinition</name>
 			<wildCard>true</wildCard>
 			<suffix>flowDefinition</suffix>
+			<hasFolder>false</hasFolder>
 		</component>
 		<component>
 			<name>SynonymDictionary</name>
 			<wildCard>true</wildCard>
 			<suffix>synonymDictionary</suffix>
+			<hasFolder>false</hasFolder>
 		</component>
 		<component>
 			<name>DataCategoryGroup</name>
 			<wildCard>true</wildCard>
 			<suffix>datacategorygroups</suffix>
+			<hasFolder>false</hasFolder>
 		</component>
 		<component>
 			<name>Dashboard</name>
 			<wildCard>false</wildCard>
 			<suffix>dashboard</suffix>
+			<hasFolder>true</hasFolder>
 		</component>
 		<component>
 			<name>CustomSite</name>
 			<wildCard>true</wildCard>
 			<suffix>site</suffix>
+			<hasFolder>false</hasFolder>
 		</component>
 	</components>
 </metadata>
